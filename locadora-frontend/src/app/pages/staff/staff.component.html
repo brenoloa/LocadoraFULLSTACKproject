@@ -1,0 +1,82 @@
+<div>
+  <h2>Página do Funcionário</h2>
+
+  <!-- Componente de lista de carros -->
+  <app-lista-carros
+    #listaCarros
+    (carroSelecionadoParaEdicao)="carroSelecionadoParaEdicao($event)"
+    (carroExcluido)="carroExcluido($event)">
+  </app-lista-carros>
+
+  <!-- Formulário para adicionar um novo carro -->
+  <h3>Adicionar Novo Carro</h3>
+  <form (ngSubmit)="adicionarCarro()">
+    <label>
+      Marca:
+      <input type="text" [(ngModel)]="novoCarro.marca" name="marca" required>
+    </label>
+    <label>
+      Modelo:
+      <input type="text" [(ngModel)]="novoCarro.modelo" name="modelo" required>
+    </label>
+    <label>
+      Ano:
+      <input type="number" [(ngModel)]="novoCarro.ano" name="ano" required>
+    </label>
+    <label>
+      Cor:
+      <input type="text" [(ngModel)]="novoCarro.cor" name="cor" required>
+    </label>
+    <label>
+      Km:
+      <input type="number" [(ngModel)]="novoCarro.km" name="km" required>
+    </label>
+    <label>
+      Preço por Dia:
+      <input type="number" [(ngModel)]="novoCarro.precoPorDia" name="precoPorDia" required>
+    </label>
+    <button type="submit">Adicionar Carro</button>
+  </form>
+
+  <!-- Modal para edição -->
+  <div *ngIf="carroParaEditar" class="modal">
+    <h3>Editar Carro</h3>
+    <form (ngSubmit)="confirmarEdicao()">
+      <label>
+        Marca:
+        <input type="text" [(ngModel)]="carroParaEditar.marca" name="marcaEdit" required>
+      </label>
+      <label>
+        Modelo:
+        <input type="text" [(ngModel)]="carroParaEditar.modelo" name="modeloEdit" required>
+      </label>
+      <label>
+        Ano:
+        <input type="number" [(ngModel)]="carroParaEditar.ano" name="anoEdit" required>
+      </label>
+      <label>
+        Cor:
+        <input type="text" [(ngModel)]="carroParaEditar.cor" name="corEdit" required>
+      </label>
+      <label>
+        Km:
+        <input type="number" [(ngModel)]="carroParaEditar.km" name="kmEdit" required>
+      </label>
+      <label>
+        Preço por Dia:
+        <input type="number" [(ngModel)]="carroParaEditar.precoPorDia" name="precoPorDiaEdit" required>
+      </label>
+      <button type="submit">Salvar Alterações</button>
+    </form>
+  </div>
+
+  <!-- Solicitação de Locação -->
+  <div *ngIf="locacaoSolicitada" class="modal">
+    <h3>Solicitação de Locação</h3>
+    <p>Carro ID: {{ locacaoSolicitada.carroId }}</p>
+    <p>Data de Locação: {{ locacaoSolicitada.dataLocacao | date }}</p>
+    <p>Data de Devolução: {{ locacaoSolicitada.dataDevolucao | date }}</p>
+    <button (click)="aprovarLocacao(locacaoSolicitada)">Aprovar</button>
+    <button (click)="recusarLocacao(locacaoSolicitada)">Recusar</button>
+  </div>
+</div>

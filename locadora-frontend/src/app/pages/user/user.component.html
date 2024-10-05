@@ -1,0 +1,47 @@
+<h2>Página do Cliente</h2>
+<p>Bem-vindo à página do cliente!</p>
+
+<div>
+  <h3>Carros Disponíveis</h3>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Ano</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let carro of carros">
+        <td>{{ carro.marca }}</td>
+        <td>{{ carro.modelo }}</td>
+        <td>{{ carro.ano }}</td>
+        <td><button (click)="selecionarCarro(carro)">Detalhes</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="carroSelecionado">
+    <h3>Detalhes do Carro Selecionado</h3>
+    <p>Marca: {{ carroSelecionado.marca }}</p>
+    <p>Modelo: {{ carroSelecionado.modelo }}</p>
+    <p>Ano: {{ carroSelecionado.ano }}</p>
+    <p>Cor: {{ carroSelecionado.cor }}</p>
+    <p>Km: {{ carroSelecionado.km }}</p>
+    <p>Preço por Dia: {{ carroSelecionado.precoPorDia }}</p>
+
+    <label>Quantidade de Dias:</label>
+    <input type="number" [(ngModel)]="quantidadeDias" (input)="calcularTotal()">
+
+    <p *ngIf="total">Total: {{ total }} reais</p>
+
+    <button (click)="solicitarAluguel()">Solicitar Aluguel</button>
+  </div>
+
+  <div *ngIf="locacaoAtual">
+    <h3>Carro sob sua posse:</h3>
+    <p>Você tem um carro em locação. Carro ID: {{ locacaoAtual.carroId }}</p>
+    <button (click)="devolverCarro()">Devolver Carro</button>
+  </div>
+</div>

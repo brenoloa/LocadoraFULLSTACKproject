@@ -1,0 +1,31 @@
+<!-- src/app/pages/registro/registro.component.html -->
+<h2>Registrar</h2>
+
+<form (ngSubmit)="onRegister()">
+  <label for="nome">
+    Nome:
+    <input type="text" id="nome" [(ngModel)]="nome" name="nome" required />
+  </label>
+
+  <label for="email">
+    Email:
+    <input type="email" id="email" [(ngModel)]="email" name="email" required />
+  </label>
+
+  <label for="senha">
+    Senha:
+    <input type="password" id="senha" [(ngModel)]="senha" name="senha" required />
+  </label>
+
+  <label for="isFuncionario">
+    Você é:
+    <select id="isFuncionario" [(ngModel)]="isFuncionario" name="isFuncionario">
+      <option [value]="true">Funcionário</option>
+      <option [value]="false">Cliente</option>
+    </select>
+  </label>
+
+  <button type="submit">Registrar</button>
+</form>
+
+<a routerLink="/login">Login</a>

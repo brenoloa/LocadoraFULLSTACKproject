@@ -1,0 +1,38 @@
+.modal {
+  display: none; /* Oculta o modal por padrão */
+  position: fixed;
+  z-index: 1; /* Fica acima de outros elementos */
+  left: 0;
+  top: 0;
+  width: 100%; /* Largura total */
+  height: 100%; /* Altura total */
+  overflow: auto; /* Habilita rolagem se necessário */
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro com opacidade */
+}
+
+.modal.show {
+  display: block; /* Exibe o modal quando a classe show é adicionada */
+}
+
+.modal-dialog {
+  margin: 15% auto; /* Centraliza vertical e horizontalmente */
+  width: 80%; /* Largura do modal */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  padding: 20px;
+  border-radius: 5px; /* Bordas arredondadas */
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}

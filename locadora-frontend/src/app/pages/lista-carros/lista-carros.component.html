@@ -1,0 +1,35 @@
+<div *ngIf="loading">Carregando...</div>
+<div *ngIf="!loading">
+  <h2>Lista de Carros</h2>
+  <table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Ano</th>
+        <th>Cor</th>
+        <th>Km</th>
+        <th>Preço por Dia</th>
+        <th>Disponibilidade</th> <!-- Nova coluna -->
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let carro of carros">
+        <td>{{ carro.id }}</td>
+        <td>{{ carro.marca }}</td>
+        <td>{{ carro.modelo }}</td>
+        <td>{{ carro.ano }}</td>
+        <td>{{ carro.cor }}</td>
+        <td>{{ carro.km }}</td>
+        <td>{{ carro.precoPorDia }}</td>
+        <td>{{ carro.disponivel ? 'Disponível' : 'Indisponível' }}</td> <!-- Exibir status -->
+        <td>
+          <button (click)="selecionarCarroParaEdicao(carro)">Editar</button>
+          <button (click)="excluirCarro(carro.id)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

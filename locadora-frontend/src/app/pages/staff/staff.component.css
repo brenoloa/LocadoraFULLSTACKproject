@@ -1,0 +1,21 @@
+.modal {
+  display: block; /* Mostrar o modal */
+  position: fixed; /* Ficar em posição fixa */
+  z-index: 1; /* Ficar acima de outros elementos */
+  left: 0;
+  top: 0;
+  width: 100%; /* Largura total */
+  height: 100%; /* Altura total */
+  overflow: auto; /* Habilitar rolagem se necessário */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Cor de fundo com opacidade */
+  padding-top: 60px; /* Espaço no topo */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto; /* Margens automáticas */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Largura do modal */
+}
